@@ -27,7 +27,7 @@ mongoose.connect(
 });
 
 app.listen(port, () =>{
-    console.log("Server running on port 8000")
+  console.log("Server is running on port" + port);
 })
 
 const User = require("./models/user");

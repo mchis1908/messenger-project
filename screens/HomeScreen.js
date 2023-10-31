@@ -39,8 +39,8 @@ const HomeScreen = () => {
       const userId = decodedToken.userId;
       setUserId(userId);
 
-      axios
-        .get(`http://localhost:8000/users/${userId}`)
+      await axios
+        .get(`http://10.0.244.144:8000/users/${userId}`)
         .then((response) => {
           setUsers(response.data);
         })

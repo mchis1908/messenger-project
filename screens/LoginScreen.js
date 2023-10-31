@@ -32,14 +32,14 @@ const LoginScreen = () => {
 
     checkLoginStatus();
   }, []);
-  const handleLogin = () => {
+  const handleLogin = async () => {
     const user = {
       email: email,
       password: password,
     };
 
-    axios
-      .post("http://localhost:8000/login", user)
+    await axios
+      .post("http://10.0.244.144:8000/login", user)
       .then((response) => {
         console.log(response);
         const token = response.data.token;
@@ -48,7 +48,7 @@ const LoginScreen = () => {
         navigation.replace("Home");
       })
       .catch((error) => {
-        Alert.alert("Login Error", "Invalid email or password");
+        // Alert.alert("Login Error", "Invalid email or password");
         console.log("Login Error", error);
       });
   };

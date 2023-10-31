@@ -17,7 +17,7 @@ const RegisterScreen = () => {
   const [password, setPassword] = useState("");
   const [image, setImage] = useState("");
   const navigation = useNavigation();
-  const handleRegister = () => {
+  const handleRegister = async () => {
     const user = {
       name: name,
       email: email,
@@ -26,8 +26,8 @@ const RegisterScreen = () => {
     };
 
     // send a POST  request to the backend API to register the user
-    axios
-      .post("http://localhost:8000/register", user)
+    await axios
+      .post("http://10.0.244.144:8000/register", user)
       .then((response) => {
         console.log(response);
         Alert.alert(
